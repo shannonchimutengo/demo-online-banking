@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" >
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap - Prebuilt Layout</title>
+
+    <!-- Bootstrap -->
+    <link th:href="@{/css/bootstrap/css/bootstrap.css}" type="text/css" rel="stylesheet">
+    <link th:href="@{/css/default.css}" type="text/css" rel="stylesheet">
+    <link th:href="@{/css/main.css}" type="text/css" rel="stylesheet">
+    <link th:href="@{/css/fontawesome/css/all.css}" type="text/css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+
+    <![endif]-->
+
+    <title>register</title>
+
+</head>
+<body th:style="|background : url(@{/images/home-2.jpg});|">
+<div th:insert="header.html"></div>
+
+<div class="d-flex align-items-center justify-content-center" >
+<!--Card-->
+<div class="card registration-form-card w-auto">
+<!--    card body-->
+    <div class="card-body ">
+<!--        Card header-->
+        <div class="card-header mb-2">
+            <h4><i class="fa fa-edit"></i> Register</h4>
+        </div>
+        <form action="/registration" class="reg-form"method="post">
+            <div class="row">
+<!-- form group-->
+                <div class="form-group col">
+                    <div class="input-group mb-3">
+                        <input type="text" name="username" required class="form-control form-control-lg"  placeholder="Username" aria-label="Full Name" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+<!-- end of form group-->
+                <!-- form group-->
+                <div class="form-group col">
+                    <div class="input-group mb-3">
+
+                        <input type="text" name="lastname" required class="form-control form-control-lg"  placeholder="Lastname" aria-label="Full Name" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+                <!-- end of form group-->
+
+            </div>
+            <div class="row">
+                <!-- form group-->
+                <div class="form-group col">
+                    <div class="input-group mb-3">
+                        <input type="email" name="email" required class="form-control form-control-lg"  placeholder="enter your email" aria-label="Full Name" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+                <!-- end of form group-->
+            </div>
+            <div class="row">
+                <!-- form group-->
+                <div class="form-group col">
+                    <div class="input-group mb-3">
+                        <input type="password" name="password" required class="form-control form-control-lg"  placeholder="Enter password" aria-label="Full Name" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+                <!-- end of form group-->
+                <!-- form group-->
+                <div class="form-group col">
+                    <div class="input-group mb-3">
+
+                        <input type="password" name="confirm_password" required class="form-control form-control-lg"  placeholder="confirm_password" aria-label="Full Name" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+                <!-- end of form group-->
+            </div>
+
+            <div class="form-group col button-submit">
+                <div class="btn-primary">
+                    <input type="submit" name="submit" required class="form-control" >
+                </div>
+            </div>
+
+        </form>
+<div class="form-control-lg">
+    Already have an account ? <span class="fa fa-lock-open"></span><a href="/login">Login</a>
+
+</div>
+        <div class="alert-warning">
+         <small class="fa fa-arrow-alt-circle-left form-control-lg"></small><a href="/home">Back</a>
+        </div>
+<!-- end of card-header-->
+    </div>
+<!--    end of card body-->
+</div>
+<!--end of card-->
+</div>
+</body>
+</html>

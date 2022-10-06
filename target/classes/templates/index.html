@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link th:href="@{/css/bootstrap/css/bootstrap.css}" type="text/css" rel="stylesheet">
+    <link th:href="@{/css/default.css}" type="text/css" rel="stylesheet">
+    <link th:href="@{/css/fontawesome/css/all.css}" type="text/css" rel="stylesheet">
+
+    <div th:insert="header.html"></div>
+
+</head>
+
+<body th:style="|background : url(@{/images/home-2.jpg});|">
+<div class="container-fluid py-5">
+    <h1 class="display-5 fw-bold text-white">Banking Online</h1>
+    <p class="col-md-8 fs-4 text-white">
+        Internet Banking means a secured internet based electronic service offered by the bank which enables the
+        customer to connect with the bank and transact on a nominated account by using a computer and
+        accessing via our website. This includes transactions processed through the mobile banking facility.
+        computer and accessing via our website.This includes transactions processed through the mobile banking facility
+    </p>
+
+    <a class="btn btn-primary " href="/register" role="button">Register</a>
+    <a class="btn btn-primary  " href="/" role="button">Learn more</a>
+    </p>
+
+</div>
+</div>
+
+<div th:insert="footer.html"></div>
+<script th:src="@{/css/bootstrap/js/bootstrap.js}"></script>
+
+</body>
+</html>

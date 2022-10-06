@@ -1,0 +1,19 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+
+}
+.wrapper{
+
+    padding: 15px;
+    background-color: #bacbe6;
+    width: 550px;
+    height: auto;
+    border-radius: 6px;
+
+}
+.wrapper span{
+    font-size: 35px;
+}

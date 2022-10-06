@@ -1,0 +1,2 @@
+1. You need to a postgreSQL database or you can use any database you want just change the
+YAML configuration for the database

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Title</title>
+	<link th:href="@{/css/bootstrap/css/bootstrap.css}" type="text/css" rel="stylesheet">
+	<link th:href="@{/css/default.css}" type="text/css" rel="stylesheet">
+	<link th:href="@{/css/fontawesome/css/all.css}" type="text/css" rel="stylesheet">
+</head>
+<body th:style="|background : url(@{/images/home-2.jpg});|">
+
+<div th:insert="dashboard-nav.html"></div>
+<!--Payments and Deposits History-->
+<div class="bd-example">
+	<div>
+		<h2 class="alert alert-success p-2 "> Payments & Deposits</h2>
+	</div>
+	<table class="table bg-dark">
+		<thead class="table-light">
+		<tr>
+			<th scope="col">transaction #</th>
+			<th scope="col">Account Number</th>
+			<th scope="col">Amount $ </th>
+			<th scope="col">Beneficiary Account</th>
+			<th scope="col">Date</th>
+			<th scope="col">Reference</th>
+		</tr>
+		</thead>
+		<tbody class="text-white">
+		<tr th:each="payment, iterator: ${Payments}">
+			<th scope="row" th:text="${iterator.index+1}"></th>
+			<td th:text="${payment.getAccountHolder()}"></td>
+			<td th:text="${payment.getAmount()}"></td>
+			<td th:text="${payment.getBeneficiaryAccount()}"></td>
+			<td th:text="${payment.getLocalDateTime()}"></td>
+			<td th:text="${payment.getReference()}"></td>
+
+		</tr>
+		</tbody>
+	</table>
+</div>
+<!-- End of Payments and Deposits History-->
+
+<!--Transfer History-->
+<div class="bd-example">
+	<div>
+		<h2 class="alert alert-success p-2"> Transfer History</h2>
+	</div>
+	<table class="table bg-dark">
+		<thead class="table-light">
+		<tr>
+			<th scope="col">transaction #</th>
+			<th scope="col">Account Number</th>
+			<th scope="col">Amount $ </th>
+			<th scope="col">Beneficiary Account</th>
+			<th scope="col">Date</th>
+			<th scope="col">Reference</th>
+		</tr>
+		</thead>
+		<tbody class="text-white">
+		<tr th:each="transfer, iterator: ${Transfers}">
+			<th scope="row" th:text="${iterator.index+1}"></th>
+			<td th:text="${transfer.getAccountHolder()}"></td>
+			<td th:text="${transfer.getAmount()}"></td>
+			<td th:text="${transfer.getBeneficiaryAccount()}"></td>
+			<td th:text="${transfer.getLocalDateTime()}"></td>
+			<td th:text="${transfer.getReference()}"></td>
+
+		</tr>
+		</tbody>
+	</table>
+</div>
+<!-- End of Transfer History-->
+
+<!--Withdrawal History-->
+<div class="bd-example">
+	<div>
+		<h2 class="alert alert-success p-2 "> Withdrawals History</h2>
+	</div>
+	<table class="table bg-dark">
+		<thead class="table-light">
+		<tr>
+			<th scope="col">transaction #</th>
+			<th scope="col">Account Number</th>
+			<th scope="col">Amount $ </th>
+			<th scope="col">Date</th>
+			<th scope="col">Reference</th>
+		</tr>
+		</thead>
+		<tbody class="text-white">
+		<tr th:each="withdrawal, iterator: ${Withdrawals}">
+			<th scope="row" th:text="${iterator.index+1}"></th>
+			<td th:text="${withdrawal.getAccountNumber()}"></td>
+			<td th:text="${withdrawal.getAmount()}"></td>
+			<td th:text="${withdrawal.getLocalDateTime()}"></td>
+			<td th:text="${withdrawal.getReference()}"></td>
+
+		</tr>
+		</tbody>
+	</table>
+</div>
+<!-- End of Withdrawal History-->
+
+</body>
+</html>

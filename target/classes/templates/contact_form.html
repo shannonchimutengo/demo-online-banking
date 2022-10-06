@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap - Prebuilt Layout</title>
+    <!-- Bootstrap -->
+    <link th:href="@{/css/bootstrap/css/bootstrap.css}" type="text/css" rel="stylesheet">
+    <link th:href="@{/css/default.css}" type="text/css" rel="stylesheet">
+    <link th:href="@{/css/main.css}" type="text/css" rel="stylesheet">
+    <link th:href="@{/css/fontawesome/css/all.css}" type="text/css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <![endif]-->
+    <div th:insert="header.html"></div>
+
+</head>
+<body th:style="|background : url(@{/images/home-2.jpg});|">
+<br><br>
+<div class="content">
+<div class="card border-primary mb-3" style="max-width: 500px">
+    <div class="card-header text-center">Contact us </div>
+    <div class="card-body text-primary">
+        <h5 class="card-title text-center">Contact </h5>
+        <form th:action="@{/sendmail}" method="post" enctype="multipart/form-data">
+        <div class="input-group mb-3">
+
+            <input type="text" name="fullname" required class="form-control"  placeholder="Username" aria-label="Full Name" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+
+            <input type="text" name="email"class="form-control" placeholder="E-mail" aria-label="Username" aria-describedby="basic-addon1" required>
+        </div>
+        <div class="input-group mb-3">
+
+            <input type="text" name="subject" class="form-control" placeholder="Subject" aria-label="Subject" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group">
+            <textarea class="form-control" name="content" aria-label="Content" placeholder="Good day..." required></textarea>
+
+        </div>
+            <div class="input-group">
+                <input type="file" name="attachment" class="form-control">
+
+            </div>
+
+<br>
+        <button type="submit" class="btn btn-primary  align-center">Send Email</button>
+        </form>
+        </div>
+
+    </div>
+</div>
+<div th:insert="footer.html"></div>
+
+<script th:src="@{/css/bootstrap/js/bootstrap.js}"></script>
+
+</body>
+</html>

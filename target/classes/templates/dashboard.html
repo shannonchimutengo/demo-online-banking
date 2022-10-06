@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html  lang="en" xmlns:th="http://wwww.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link th:href="@{/css/main.css}" type="text/css" rel="stylesheet">
+    <link th:href='@{/css/bootstrap/css/bootstrap.css}' type='text/css' rel='stylesheet'>
+
+    <div th:insert="dashboard-nav.html"></div>
+</head>
+<body th:style="|background : url(@{/images/home-2.jpg});|">
+
+<!--Left OffCanvas Button-->
+<div class="container d-flex mt-3">
+    <button class="btn btn-primary " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+            aria-controls="offcanvasExample">
+        <i class="fas fa-credit-card me-1"></i>Add New Account
+    </button>
+
+    <!--End of Left offCanvas Button-->
+    <!--Right offCanvas Button-->
+
+    <button class="btn btn-success ms-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+            aria-controls="offcanvasRight"><i class="fas fa-wallet me-1"></i> Transact
+    </button>
+</div>
+
+<!-- End of Right offCanvas Button-->
+
+<!--Left offCanvas -->
+<div class="offcanvas offcanvas-start bg-primary text-white" tabindex="-1" id="offcanvasExample"
+     aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel"><i class="fa fa-edit"></i>Create Account</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="container">
+            <div class="card mt-1">
+                <form th:action="@{/add-account}" method="post">
+                <div class="card-body">
+
+                    <div class="form-group mt-1">
+                        <div class="form-group mt-1">
+                            <input  name="account_name" type="text" class="form-control" placeholder="Account Name">
+                        </div>
+                    </div>
+                    <div class="form-group mt-1">
+                        <div class="form-group mt-1">
+                            <input  name="account_type" type="text" class="form-control" placeholder="Savings,Check,Business">
+                        </div>
+                    </div>
+
+                    <button id="Account" type="submit" class="btn btn-sm btn-primary mt-1">Add Account</button>
+
+                </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="offcanvas offcanvas-end bg-success text-white" tabindex="-1" id="offcanvasRight"
+     aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel"><i class="fas fa-money-bill-transfer me-2"></i>Transact
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="container">
+        <div class="offcanvas-body">
+            <small>
+                Choose any Option to perform a transaction
+            </small>
+            <select class="form-select form-control py-3" id="transact-type">
+                <option value="">--Transaction Type--</option>
+                <option value="payment">Payment</option>
+                <option value="transfer">Transfer</option>
+                <option value="deposit">Deposit</option>
+                <option value="withdraw">Withdraw</option>
+            </select>
+        </div>
+        <!--Payment Card-->
+        <div class="container payment-card">
+            <div class="card mt-1">
+                <div class="card-body">
+                    <form action="/payment" method ="post">
+                    <div class="form-group mt-1">
+                        <input name="account_number" type="text" class="form-control" placeholder="Account Holder Number">
+                    </div>
+                    <div class="form-group mt-1">
+                        <input name="beneficiary_account" type="text" class="form-control" placeholder="Beneficiary Account Number">
+                    </div>
+
+                    <div class="form-group mt-1">
+                        <input name = "reference" type="text" class="form-control" placeholder="Enter reference">
+                        <div class="form-group mt-1">
+                            <input  name="amount" type="text" class="form-control" placeholder="Enter Amount">
+                        </div>
+                        <button type="submit" id="Transact" class="btn btn-sm btn-primary mt-1">Pay</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <!--End of Payment Card-->
+
+        <!--Transfer Card-->
+        <div class="container transfer-card">
+            <div class="card mt-1">
+                <div class="card-body">
+                    <form action="/transfer" method = "post">
+                    <div class="form-group mt-1">
+                        <input name="account_number" type="text" class="form-control" placeholder="Account Holder Number">
+                    </div>
+                    <div class="form-group mt-1">
+                        <input name="beneficiary_account" type="text" class="form-control" placeholder="Beneficiary Account Number">
+                    </div>
+                    <div class="form-group mt-1">
+                        <div class="form-group mt-1">
+                            <input  name="transfer_amount" type="text" class="form-control" placeholder="Enter Transfer Amount">
+                        </div>
+                        <button id="Transfer"  type="submit" class="btn btn-sm btn-primary mt-1">Transfer</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <!--End of Accounts Card-->
+
+        <!--Deposit Card-->
+
+        <div class="container deposit-card">
+            <div class="card mt-1">
+                <div class="card-body">
+                    <form action = "/deposit" method="post">
+                        <input  name="account_number" type="text" class="form-control" placeholder="Enter Account Number">
+                        <div class="form-group mt-1">
+                        <div class="form-group mt-1">
+                            <input  name="amount" type="text" class="form-control" placeholder="Enter Deposit Amount">
+                        </div>
+                        <button  type="submit" id="Deposit" class="btn btn-sm btn-primary mt-1">Deposit</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <!--End of Deposits Card-->
+
+        <!--Withdraw Card-->
+        <div class="container withdraw-card">
+            <div class="card mt-1">
+                <div class="card-body">
+                    <form action="/withdraw" method="post">
+                    <div class="form-group mt-1">
+                        <input name="account_number" type="text" class="form-control" placeholder="Account Holder Number">
+                    </div>
+                    <div class="form-group mt-1">
+                        <div class="form-group mt-1">
+                            <input  name="amount" type="text" class="form-control" placeholder="Withdrawal Amount">
+                        </div>
+                        <button  type="submit" id="Withdraw" class="btn btn-sm btn-primary mt-1">Withdraw</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <!--End of Withdraw Card-->
+    </div>
+</div>
+<!--End of Right OffCanvas-->
+
+<!--Account balance-->
+<div class="container d-flex">
+    <h3 class="me-auto">Welcome</h3>
+    <h3 class="ms-auto" ></h3>
+</div>
+<!--End of Account Balance-->
+<!--Accounts Accordion-->
+<div class="container " th:each = "account, iterator: ${accounts}">
+    <div class="accordion alert-success" id="accordionExample">
+        <div class="accordion-item mt-1">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                        aria-expanded="true" aria-controls="collapseOne">
+                    <i th:text = "${iterator.index+1}"></i>
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                 data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                   <div class="alert-success " >
+                       <button type="button" class="btn btn-sm btn-success">Account Name</button>
+                       <div class="ms-2" th:text="${account.getAccount_name()}"></div>
+                       <button type="button" class="btn btn-sm btn-success">Account Number</button>
+                       <div class="ms-2"  th:text= "${account.getAccount_number()}"></div>
+
+                       <button type="button" class="btn btn-sm btn-success">Account Balance</button>
+                       <div class="ms-2"  th:text= "${account.getAccount_balance()}"></div>
+
+                       <button type="button" class="btn btn-sm btn-success">Date Created</button>
+                       <div class="ms-2" th:text= "${account.getDate_created()}"></div>
+                       <button type="button" class="btn btn-sm btn-success">Account Type</button>
+                        <div class="ms-2" th:text= "${account.getAccount_type()}"></Accountdiv>
+                       <button type="button" class="btn btn-sm btn-success">Account Type</button>
+                       User ID: <div class="ms-2" th:text= "${account.getUserId()}"></div>
+                   </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+<!--End of Accounts Accordion-->
+<!--No Accounts -->
+<div class="container" th:if = "${no_account}">
+    <div class="card mt-1 ">
+        <div class="card-header">
+            <i class="fa fa-ban text-danger"></i>
+            No Registered Accounts
+            <hr>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-danger  text-bg-danger">
+                <i class="fa fa-exclamation-triangle"></i>
+                No Registered accounts at the moment...Please register your Account
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>
+<!--End of No Accounts -->
+
+</body>
+<script th:src="@{/css/bootstrap/js/bootstrap.bundle.js}"></script>
+<script th:src="@{/css/main.js}"></script>
+
+</html>

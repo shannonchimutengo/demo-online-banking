@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap - Prebuilt Layout</title>
+
+    <!-- Bootstrap -->
+    <link th:href="@{/css/bootstrap/css/bootstrap.css}" type="text/css" rel="stylesheet">
+    <link th:href="@{/css/default.css}" type="text/css" rel="stylesheet">
+    <link th:href="@{/css/main.css}" type="text/css" rel="stylesheet">
+    <link th:href="@{/css/fontawesome/css/all.css}" type="text/css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+
+    <![endif]-->
+    <div th:insert="header.html"></div>
+
+</head>
+<body th:style="|background : url(@{/images/home-2.jpg});|">
+<br><br>
+<div class="content">
+    <div class="card border-primary mb-3">
+        <div class="card-header text-center"><span class="fa fa-user-circle"></span> Login</div>
+        <div class="card-body text-primary">
+            <h5 class="card-title text-center"></h5>
+            <div class="alert alert-success " th:if="${param.error}">Invalid Username or password </div>
+            <div class="alert alert-success " th:if="${param.logout}">You have been logged out </div>
+
+            <form th:action="@{/login}"  method="post">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text fa fa-edit" id="basic-addon"></span>
+                    </div>
+                    <input type="text" name="username" required class="form-control"  placeholder="Username"aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text fa fa-lock" id="basic-add"></span>
+                    </div>
+                    <input type="password" name="password"class="form-control" placeholder="password"  aria-describedby="basic-addon1" required>
+                </div>
+
+                <div class="row ">
+                    <div class="col">
+                        <button type="submit" name="submit" class="btn btn-sm btn-primary  my-2"><i class="fa fa-user-lock me-1"></i>
+                            Please Login
+                        </button>
+
+                    </div>
+                </div>
+
+            </form>
+            <a class = "btn btn-sm btn-success w-100" href="/register">
+                <i class = "fa fa-arrow-alt-circle-left me-1 "></i>Sign Up ?
+            </a>
+        </div>
+
+    </div>
+</div>
+<script th:src="@{/css/bootstrap/js/bootstrap.js}"></script>
+
+</body>
+</html>

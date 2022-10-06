@@ -1,0 +1,20 @@
+.content{
+    max-width: 500px;
+    margin: auto;
+    padding: 5px;
+    font-style: italic;
+}
+
+
+.payment-card{
+    display: none;
+}
+.transfer-card{
+    display: none;
+}
+.deposit-card{
+    display: none;
+}
+.withdraw-card{
+    display: none;
+}

@@ -1,0 +1,26 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+.card .form-control{
+    margin: 10px 0px;
+    box-shadow: 0px 3px 6px rgb(0,14,53)
+}
+
+.button-submit{
+    margin: 10px 0px;
+    box-shadow: 0px 3px 6px rgb(0,14,53)
+}
+.wrapper{
+
+    padding: 15px;
+    background-color:#6c757d;
+    width: auto;
+    height: auto;
+
+}

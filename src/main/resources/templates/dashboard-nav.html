@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link th:href="@{/css/bootstrap/css/bootstrap.css}" type="text/css" rel="stylesheet">
+<!--    <link th:href="@{/css/default.css}" type="text/css" rel="stylesheet">-->
+<!--    <link th:href="@{/css/main.css}" type="text/css" rel="stylesheet">-->
+    <link th:href="@{/css/fontawesome/css/all.css}" type="text/css" rel="stylesheet">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-primary">
+
+    <div class="container">
+        <a class="navbar-brand text-white" href="#"><i class="fa fa-bank me-2"></i>Online Banking</a>
+        <ul class="navbar-nav">
+
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/home"><i class="fa fa-dashboard me-2"></i>Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/transactions"><i class="fa fa-history me-2"></i>Transaction history</a>
+            </li>
+            <li class="nav-item bg-success btn btn-sm ">
+                <a class="nav-link text-white" href="/contact-us"><i class="fa fa-smile me-2"></i>Welcome</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/logout"><i class="fa fa-power-off me-2"></i>Logout</a>
+            </li>
+        </ul>
+
+    </div>
+
+</nav>
+</body>
+</html>

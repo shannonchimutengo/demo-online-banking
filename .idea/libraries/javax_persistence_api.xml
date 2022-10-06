@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="javax.persistence.api" type="repository">
+    <properties maven-id="javax.persistence:javax.persistence-api:2.2" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
